@@ -1,26 +1,15 @@
-// controllers/uploadContoller.js
-
 export const uploadImage = (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({
-        success: false,
-        message: 'No file uploaded',
-      });
-    }
-
-    const imageUrl = `/uploads/${req.file.filename}`;
-
-    return res.status(200).json({
-      success: true,
-      message: 'Image uploaded successfully',
-      imageUrl: imageUrl,
-    });
-  } catch (error) {
-    return res.status(500).json({
+  if (!req.file) {
+    return res.status(400).json({
       success: false,
-      message: 'Something went wrong during image upload',
-      error: error.message,
+      message: 'No file uploaded or invalid file format',
     });
   }
+
+  res.status(200).json({
+    success: true,
+    message: 'Image uploaded successfully',
+    path: `uploads/${req.file.filename}`, 
+    fileName: req.file.filename,
+  });
 };
