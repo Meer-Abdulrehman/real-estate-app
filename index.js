@@ -25,7 +25,8 @@ const app = express(); // ✅ Initialization before usage
 
 // CORS setup
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://venerable-bunny-d4c3d0.netlify.app/',
+  
   credentials: true
 }));
 
