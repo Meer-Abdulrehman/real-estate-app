@@ -1,6 +1,6 @@
 // controllers/uploadContoller.js
 
-export const uploadImage = (req, res,next) => {
+export const uploadImage = (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({
