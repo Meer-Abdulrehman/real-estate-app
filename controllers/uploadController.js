@@ -9,7 +9,7 @@ export const uploadImage = (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Image uploaded successfully',
-    path: `uploads/${req.file.filename}`, 
+    path: `/uploads/${req.file.filename}`, 
     fileName: req.file.filename,
   });
 };

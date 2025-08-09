@@ -25,7 +25,10 @@ const app = express(); // ✅ Initialization before usage
 
 // CORS setup
 app.use(cors({
-  origin: "https://gharbazaar-realestate.netlify.app",
+  origin: [
+    "https://gharbazaar-realestate.netlify.app",
+    "http://localhost:5173"
+  ],
   credentials: true
 }));
 
@@ -36,8 +39,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 // ✅ Serve uploaded files from "upload" folder
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
+app.use('/api/upload', uploadRoutes);
 // ✅ Connect to MongoDB
 ConnectDb();
 
