@@ -25,8 +25,7 @@ const app = express(); // ✅ Initialization before usage
 
 // CORS setup
 app.use(cors({
-  origin: 'http://localhost:5173',
-  
+  origin: "https://gharbazaar-realestate.netlify.app",
   credentials: true
 }));
 
