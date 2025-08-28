@@ -26,7 +26,7 @@ const app = express(); // ✅ Initialization before usage
 // CORS setup
 app.use(cors({
   origin: [
-    "https://gharbazaar-realestate.netlify.app",
+    "https://ghar-bazaar-real-estate-786.vercel.app",
     "http://localhost:5173"
   ],
   credentials: true
