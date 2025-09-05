@@ -26,7 +26,7 @@ const app = express(); // ✅ Initialization before usage
 // CORS setup
 app.use(cors({
   origin: [
-    "https://ghar-bazaar-real-estate-786.vercel.app",
+    "https://ghar-bazaar-real-estate-frontend.vercel.app",
     "http://localhost:5173"
   ],
   credentials: true
@@ -45,6 +45,13 @@ app.use('/api/upload', uploadRoutes);
 // ✅ Connect to MongoDB
 ConnectDb();
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "MERN Real Estate API is running!",
+    status: "success",
+    timestamp: new Date().toISOString(),
+  });
+});
 // ✅ Define API routes
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
